@@ -1,0 +1,52 @@
+{
+  "name": "@funtend/carcix",
+  "version": "0.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "postinstall": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || lefthook install",
+    "build": "tsc",
+    "lint": "eslint src --config eslint.config.js",
+    "prepublishOnly": "pnpm lint && pnpm build"
+  },
+  "keywords": [
+    "ipfs",
+    "car"
+  ],
+  "author": "Funtend",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^8.54.0",
+    "@stylistic/eslint-plugin": "^1.4.1",
+    "@types/node": "^20.10.7",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.13.1",
+    "bun-types": "^1.0.21",
+    "eslint": "^8.54.0",
+    "globals": "^13.23.0",
+    "lefthook": "^1.5.6",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@ipld/car": "^5.2.6",
+    "@ipld/unixfs": "^2.1.2",
+    "blockstore-core": "^4.3.10",
+    "ipfs-unixfs-importer": "^15.2.3",
+    "multiformats": "^13.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
