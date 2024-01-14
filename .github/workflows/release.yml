@@ -48,6 +48,9 @@ jobs:
           version: 8
           run_install: false
 
+      - name: Install Dependencies
+        run: bun install
+
       - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -78,6 +81,9 @@ jobs:
         with:
           version: 8
           run_install: false
+
+      - name: Install Dependencies
+        run: bun install
 
       - run: pnpm publish --no-git-checks
         env:
